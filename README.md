@@ -28,12 +28,6 @@ In this capstone project, we are analyzing restaurant inspection data alongside 
 	• Do restaurants located in areas with older or younger populations tend to have different inspection outcomes?
 
 
-8. How do changes in population demographics over time correlate with changes in restaurant inspection scores?
-Is there evidence to suggest that shifts in the demographic makeup of neighborhoods impact the performance of restaurants in inspections?
-
-
-
-
 # Dataset Sources
 
 Restaurant inspections dataset (webscraped):
