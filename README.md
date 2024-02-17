@@ -4,8 +4,6 @@ In this capstone project, we are analyzing restaurant inspection data alongside 
 
 
 # Research Questions
-1. Which types of violations are most commonly cited during inspections?
-  Identify the most frequently occurring violations and their prevalence across different types of restaurants.
 
 2. Is there a correlation between restaurant location and inspection scores?
 	  • Investigate whether the geographic location of restaurants within Davidson County correlates with their inspection scores
