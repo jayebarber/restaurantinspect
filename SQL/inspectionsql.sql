@@ -1,7 +1,4 @@
-SELECT mode(score), mode(zip) 
-FROM inspections
-LEFT JOIN  zipcodepop ON inspections.zip = zipcodepop.zipcode
-GROUP BY score
-
-
-
+SELECT score, zip
+FROM inspections 
+GROUP BY score, zip
+ORDER BY score DESC;
