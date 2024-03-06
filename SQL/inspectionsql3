@@ -8,6 +8,15 @@ FROM inspections1
 WHERE score IS NOT NULL
 GROUp BY ZIP;
 
+
+UPDATE inspections1
+SET zip = '37220'
+WHERE zip = '372207';
+
+DELETE FROM inspections1
+WHERE zip IN ('29412','14240');
+
+
 SELECT AVG(score), zip
 FROM inspections1
 WHERE score IS NOT NULL
@@ -15,6 +24,17 @@ GROUp BY ZIP;
 
 SELECT *
 FROM householdincome
+
+#finding the 7 outlining zipcodes that are not reported within the census data:
+SELECT DISTINCT zip
+FROM inspections1 i
+LEFT JOIN race r ON i.zip = r.zipcode
+WHERE r.zipcode IS NULL;
+
+SELECT zip, COUNT(*) AS num_reports
+FROM inspections1
+WHERE zip IN ('37243','37202','37116','37230','37235','37240','37067')
+GROUP BY zip;
 
 
 SELECT *
@@ -43,6 +63,65 @@ SUM(CASE WHEN "Associate's degree" ~ '^\d+$' THEN CAST("Associate's degree" AS I
 	   AS Degreed_residents
 FROM education2
 GROUP BY zipcode;
+
+
+#residents with no degree acquired 
+SELECT DISTINCT ZIPCODE,
+SUM(CASE WHEN "Regular high school diploma" ~ '^\d+$' THEN CAST("Regular high school diploma" AS INT) ELSE 0 END) +   SUM(CASE WHEN "GED or alternative credential" ~ '^\d+$' THEN CAST("GED or alternative credential" AS INT) ELSE 0 END) + SUM(CASE WHEN "Some college, less than 1 year" ~ '^\d+$' THEN CAST("Some college, less than 1 year" AS INT) ELSE 0 END)   AS No_Degree
+FROM education2
+GROUP BY zipcode;
+
+
+#joined with avg scores
+SELECT e.ZIPCODE, e.No_Degree, i.AVG_SCORE
+FROM
+(
+    SELECT DISTINCT ZIPCODE,
+    SUM(CASE WHEN "Regular high school diploma" ~ '^\d+$' THEN CAST("Regular high school diploma" AS INT) ELSE 0 END) + 
+	SUM(CASE WHEN "GED or alternative credential" ~ '^\d+$' THEN CAST("GED or alternative credential" AS INT) ELSE 0 END) + 
+	SUM(CASE WHEN "Some college, less than 1 year" ~ '^\d+$' THEN CAST("Some college, less than 1 year" AS INT) ELSE 0 END) AS No_Degree
+    FROM education2
+    GROUP BY ZIPCODE
+) AS e
+LEFT JOIN
+(
+    SELECT AVG(score) AS AVG_SCORE, zip
+    FROM inspections1
+    WHERE score IS NOT NULL
+    GROUP BY zip
+) AS i
+ON e.ZIPCODE = i.zip;
+
+
+SELECT e.ZIPCODE, e.No_Degree, i.AVG_SCORE
+FROM
+(
+    SELECT DISTINCT ZIPCODE,
+    SUM(CASE WHEN "Regular high school diploma" ~ '^\d+$' THEN CAST("Regular high school diploma" AS INT) ELSE 0 END) + 
+	SUM(CASE WHEN "GED or alternative credential" ~ '^\d+$' THEN CAST("GED or alternative credential" AS INT) ELSE 0 END) + 
+	SUM(CASE WHEN "Some college, less than 1 year" ~ '^\d+$' THEN CAST("Some college, less than 1 year" AS INT) ELSE 0 END) AS No_Degree
+    FROM education2
+    GROUP BY ZIPCODE
+) AS e
+LEFT JOIN
+(
+    SELECT AVG(score) AS AVG_SCORE, zip
+    FROM inspections1
+    WHERE score IS NOT NULL
+    GROUP BY zip
+) AS i
+ON e.ZIPCODE = i.zip
+WHERE i.AVG_SCORE IS NOT NULL;
+
+
+
+
+
+
+
+
+
+
 
 
 SELECT education_by_zip.ZIPCODE, education_by_zip.Degreed_residents, AVG_score.AVG_SCORE
