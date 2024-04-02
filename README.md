@@ -37,5 +37,6 @@ With this observation, we can indicate that their is not signficant relationship
 
 # Limitations
  Census Data did not provide any demographic information for 7 zipcodes. 2 zipcodes from the Inspections data was were outside of the state of Tennessee. 
-# Reproducing the Analysis
-Instructions on how others can access the datasets and replicate the analysis, including any code or tools used.
+# Dashboard Presentation
+The final dashboard can be viewed in the link below:
+https://app.powerbi.com/view?r=eyJrIjoiMDY0N2ExZGQtNjYwMy00ZWFiLTk4NjctNThmZGMzOTA1ZmQzIiwidCI6IjEwMWRhNTg3LTE4NDMtNGY1Mi04YjhhLTE3YjA2OWM2NmQzMyIsImMiOjJ9# 
