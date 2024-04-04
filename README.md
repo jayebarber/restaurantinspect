@@ -33,10 +33,12 @@ With this observation, we can indicate that areas that have a high amount of hou
 
 With this observation, we can indicate that their no direct relationship between the number of minority population and white population compared to the average inspection scores and it's location.
 
-With this observation, we can indicate that their is not signficant relationship in the business location and the average inspection score in that location due to all of the inspection scores being around the same percentage. 
+With this observation, we can indicate that their is not a signficant relationship in the business location and the average inspection score in that location due to all of the inspection scores being around the same percentage. 
 
+In conclusion,  After analyzing the data, it's clear that the Nashville Code Department maintains consistent standards across diverse demographics, showing fairness across zip codes. Our findings indicate no significant correlation between demographic factors and inspection score ratings for businesses in each zip code. This highlights the department's commitment to equitable enforcement
+practices, ensuring businesses comply with regulations fairly. Our report can serve as a valuable resource for the Nashville Code Department, affirming their dedication to impartial enforcement.
 # Limitations
  Census Data did not provide any demographic information for 7 zipcodes. 2 zipcodes from the Inspections data was were outside of the state of Tennessee. 
 # Dashboard Presentation
 The final dashboard can be viewed in the link below:
-https://app.powerbi.com/view?r=eyJrIjoiMDY0N2ExZGQtNjYwMy00ZWFiLTk4NjctNThmZGMzOTA1ZmQzIiwidCI6IjEwMWRhNTg3LTE4NDMtNGY1Mi04YjhhLTE3YjA2OWM2NmQzMyIsImMiOjJ9&pageName=ReportSectionc04c411248d7dbd1cd1d
+https://app.powerbi.com/view?r=eyJrIjoiMDY0N2ExZGQtNjYwMy00ZWFiLTk4NjctNThmZGMzOTA1ZmQzIiwidCI6IjEwMWRhNTg3LTE4NDMtNGY1Mi04YjhhLTE3YjA2OWM2NmQzMyIsImMiOjJ9
